@@ -155,5 +155,4 @@ public class Contrarreloj {
         } // del while 
     } // fin del main
 
-
 } // fin de la class

@@ -32,7 +32,7 @@ public class Dorti {
         /* le paso un dorsal, un tiempo, y lo pone en el array de clasificacion en la última celda libre */
         
         aaa[llegados].dorsal = dorsal;
-
+ 
         aaa[llegados].tiempo = tiempo;
 
         /* ahora ordena el array por el tiempo , método de los jugadores de cartas */
