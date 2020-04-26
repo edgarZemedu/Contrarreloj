@@ -68,7 +68,29 @@ public class Contrarreloj {
                         tiempo = z.nextInt();
                         llegados++;
                         puesto = Dorti.clasificar(dorsal, tiempo, clasificacion, llegados);
-                        //saber la posicion
+                        
+                        //saber la posicion y ordenar todos los datos del corredor
+                        String auxEquipo;
+                        String auxNombre;
+                        String auxNacionalidad;
+                        puesto = puesto - 1;
+                        
+                        for (int i = 0; i < corredores.length; i++) {
+                            if (corredores[i].dorsal == dorsal) {
+                                auxEquipo = corredores[i].equipo ;                
+                                corredores[i].equipo = corredores[puesto].equipo;    
+                                corredores[puesto].equipo = auxEquipo; 
+                            
+                                auxNombre = corredores[i].nombre;                
+                                corredores[i].nombre = corredores[puesto].nombre;    
+                                corredores[puesto].nombre = auxNombre; 
+                                
+                                auxNacionalidad = corredores[i].nacionalidad;                
+                                corredores[i].nacionalidad = corredores[puesto].nacionalidad;    
+                                corredores[puesto].nacionalidad = auxNacionalidad; 
+                                
+                            }     
+                        }
                         
                     } else if(comprueba == 1){
                         // el dorsal no es válido o no existe
@@ -90,7 +112,16 @@ public class Contrarreloj {
                     
                     if (comprueba == 0) {
                         // el dorsal es correcto, pero no llego entonces lo procesamos 
-                        System.out.println("el dorsal es correcto, pero aún no llegó");
+                        System.out.println("El dorsal es correcto, pero aún no llegó");
+                        for (int i = 0; i < corredores.length; i++) {
+                            if (dorsal == corredores[i].dorsal) {
+                                System.out.println("Dorsal        -> "+ corredores[i].dorsal
+                                                +"\nNombre        -> "+ corredores[i].nombre
+                                                +"\nEquipo        -> "+ corredores[i].equipo
+                                                +"\nNacionalidad  -> "+ corredores[i].nacionalidad);
+                            }
+                            
+                        }
                     } else if(comprueba == 1){
                         // el dorsal no es válido o no existe
                         System.out.println(" * * * Dorsal no válido o no existe  ");
@@ -126,11 +157,14 @@ public class Contrarreloj {
                     break;
                 case 8:// mostrar equipos participantes
                     
-                    System.out.println("NOMBRE  _  EQUIPO"
+                    System.out.println("EQUIPO"
                                    + "\n___________________"); 
-                    for (int i = 0; i < corredores.length; i++) {
-                        String cadena = corredores[i].equipo;                           
-                        System.out.println(corredores[i].nombre +"  __ "+ cadena.substring(0,3)+" --> "+ corredores[i].equipo);
+                    for (int i = 0; i <6; i++) {
+                        String cadena = corredores[i].equipo;    
+                        if (corredores[i].equipo == corredores[i+1].equipo) {
+                            i++;
+                        } 
+                        System.out.println(corredores[i].equipo +" --> "+ cadena.substring(0,3));
                     }
                             
                     break;
@@ -138,9 +172,11 @@ public class Contrarreloj {
                     System.out.println("Dime el Equipo : ");
                     equipo = z.nextLine();
 
-                    //mostrar los jugadores en el caso de que el equipo exista                    
+                    //mostrar los jugadores en el caso de que el equipo exista     
+                    System.out.println("Equipo   corredor"
+                                   + "\n-----------------");
                     for (int i = 0; i < corredores.length; i++) {                      
-                        if ( corredores[i].equipo.equals(equipo)){ 
+                        if ( corredores[i].equipo.equalsIgnoreCase(equipo)){ 
                             System.out.println(corredores[i].equipo + "  --  "+ corredores[i].nombre); 
                         }
                     }                    

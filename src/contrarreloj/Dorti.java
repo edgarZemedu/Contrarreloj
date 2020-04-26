@@ -36,26 +36,24 @@ public class Dorti {
         aaa[llegados].tiempo = tiempo;
 
         /* ahora ordena el array por el tiempo , método de los jugadores de cartas */
-        
+        int puesto;
         //MÉTODO BURBUJA
         for (int i = 0; i < aaa.length; i++) {
-            int auxtiempo = 0;
+            int auxtiempo = 0; 
             int auxdorsal = 0;
             /*aquí ordeno el tiempo con su dorsal*/
-            if (aaa[i].tiempo > aaa[llegados].tiempo) {
+            if (aaa[i].tiempo > aaa[llegados].tiempo ) {
                 auxtiempo = aaa[i].tiempo;                
                 aaa[i].tiempo = aaa[llegados].tiempo;    
                 aaa[llegados].tiempo = auxtiempo;
                                 
                 auxdorsal = aaa[i].dorsal;                
                 aaa[i].dorsal = aaa[llegados].dorsal;    
-                aaa[llegados].dorsal = auxdorsal;              
+                aaa[llegados].dorsal = auxdorsal;    
+                puesto = i;
             }
-            
         }        
         /* y devuelve en que puesto quedó */ 
-        /* aun no está implementado la ordenación */ 
-                
         return (llegados);
 
     }
@@ -77,7 +75,7 @@ public class Dorti {
         boolean yaLlego= false;
         
         //se comprueba que es un dorsal de un corredor que está inscrito
-        for ( Dorti aux  :  clasificacion ) {
+        for ( Corredor aux  :  corredores ) {
             if ( aux.dorsal == dorsal) inscrito =true ;
         }
         

@@ -44,10 +44,10 @@ public class Corredor {
         aaa[0] = uno;
 
         aaa[1] = new Corredor(20, "Perico", "Banesto","POR ");
-        aaa[2] = new Corredor(30, "Indurain", "Banesto","POR");
+        aaa[2] = new Corredor(30, "Cristian", "Banesto","POR");
         aaa[3] = new Corredor(15, "Mickel", "Red bull","FRA");
         aaa[4] = new Corredor(22, "Indurain", "Red bull","ALEM");
-        aaa[5] = new Corredor(25, "Indurain", "Movistar","ESP");
+        aaa[5] = new Corredor(25, "Mariano", "Movistar","ESP");
 
     }
 
