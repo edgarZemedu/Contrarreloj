@@ -165,7 +165,7 @@ public class Contrarreloj {
                             i++;
                         } 
                         System.out.println(corredores[i].equipo +" --> "+ cadena.substring(0,3));
-                    }
+                    }//me da error aquí
                             
                     break;
                 case 9: // mostrar información de un equipo
